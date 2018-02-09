@@ -34,6 +34,12 @@ Inventory::Inventory(GameObject* gameobject, BaseWeapon* weapon, BaseShield* shi
 	BaseChestplate* chestplate, BaseGreaves* greaves) :
 	Component(gameObject)
 {
+	m_weapon = std::unique_ptr<BaseWeapon>(nullptr);
+	m_shield = std::unique_ptr<BaseShield>(nullptr);
+	m_helmet = std::unique_ptr<BaseHelmet>(nullptr);
+	m_chestplate = std::unique_ptr<BaseChestplate>(nullptr);
+	m_greaves = std::unique_ptr<BaseGreaves>(nullptr);
+
 	setWeapon(weapon);
 	setShield(shield);
 	setHelmet(helmet);
