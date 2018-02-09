@@ -70,9 +70,9 @@ void CharacterController::onUpdate(int ticks)
 {
 	m_pilot.get()->onUpdate(ticks);
 
-	updateWeapon(ticks);
-	updateShield(ticks);
-	updateGreaves(ticks);
+	//updateWeapon(ticks);
+	//updateShield(ticks);
+	//updateGreaves(ticks);
 }
 
 void CharacterController::move(Vector2 delta)

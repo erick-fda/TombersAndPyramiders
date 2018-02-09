@@ -17,6 +17,11 @@
 #include "BaseHelmet.h"
 #include "BaseChestplate.h"
 #include "BaseGreaves.h"
+#include "NullChestplate.h"
+#include "NullWeapon.h"
+#include "NullShield.h"
+#include "NullHelmet.h"
+#include "NullGreaves.h"
 
 /*----------------------------------------------------------------------------------------
 	Resource Management
@@ -27,13 +32,14 @@ Inventory::Inventory(GameObject* gameobject) :
 
 Inventory::Inventory(GameObject* gameobject, BaseWeapon* weapon, BaseShield* shield, BaseHelmet* helmet,
 	BaseChestplate* chestplate, BaseGreaves* greaves) :
-	Component(gameObject),
-	m_weapon{ std::unique_ptr<BaseWeapon>(weapon) },
-	m_shield{ std::unique_ptr<BaseShield>(shield) },
-	m_helmet{ std::unique_ptr<BaseHelmet>(helmet) },
-	m_chestplate{ std::unique_ptr<BaseChestplate>(chestplate) },
-	m_greaves{ std::unique_ptr<BaseGreaves>(greaves) }
-{}
+	Component(gameObject)
+{
+	setWeapon(weapon);
+	setShield(shield);
+	setHelmet(helmet);
+	setChestplate(chestplate);
+	setGreaves(greaves);
+}
 
 /*----------------------------------------------------------------------------------------
 	Instance Getter Methods
@@ -68,27 +74,44 @@ BaseGreaves& Inventory::getGreaves()
 ----------------------------------------------------------------------------------------*/
 void Inventory::setWeapon(BaseWeapon* weapon)
 {
-	m_weapon = std::unique_ptr<BaseWeapon>(weapon);
+	////
+	//m_weapon.reset(weapon);
+	//return;
+
+	//
+	m_weapon.reset(
+		(weapon == nullptr) ?
+		new NullWeapon() :
+		weapon
+	);
 }
 
 void Inventory::setShield(BaseShield* shield)
 {
-	m_shield = std::unique_ptr<BaseShield>(shield);
+	m_shield = (shield == nullptr) ?
+		std::unique_ptr<BaseShield>(new NullShield()) :
+		std::unique_ptr<BaseShield>(shield);
 }
 
 void Inventory::setHelmet(BaseHelmet* helmet)
 {
-	m_helmet = std::unique_ptr<BaseHelmet>(helmet);
+	m_helmet = (helmet == nullptr) ?
+		std::unique_ptr<BaseHelmet>(new NullHelmet()) :
+		std::unique_ptr<BaseHelmet>(helmet);
 }
 
 void Inventory::setChestplate(BaseChestplate* chestplate)
 {
-	m_chestplate = std::unique_ptr<BaseChestplate>(chestplate);
+	m_chestplate = (chestplate == nullptr) ?
+		std::unique_ptr<BaseChestplate>(new NullChestplate()) :
+		std::unique_ptr<BaseChestplate>(chestplate);
 }
 
 void Inventory::setGreaves(BaseGreaves* greaves)
 {
-	m_greaves = std::unique_ptr<BaseGreaves>(greaves);
+	m_greaves = (greaves == nullptr) ?
+		std::unique_ptr<BaseGreaves>(new NullGreaves()) :
+		std::unique_ptr<BaseGreaves>(greaves);
 }
 
 /*----------------------------------------------------------------------------------------

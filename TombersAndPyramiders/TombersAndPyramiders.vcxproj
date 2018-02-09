@@ -172,6 +172,11 @@
     <ClCompile Include="Game\ExternalClasses\BaseShortsword.cpp" />
     <ClCompile Include="Game\ExternalClasses\BaseWeapon.cpp" />
     <ClCompile Include="Game\ExternalClasses\Damageable.cpp" />
+    <ClCompile Include="Game\ExternalClasses\NullChestplate.cpp" />
+    <ClCompile Include="Game\ExternalClasses\NullGreaves.cpp" />
+    <ClCompile Include="Game\ExternalClasses\NullHelmet.cpp" />
+    <ClCompile Include="Game\ExternalClasses\NullShield.cpp" />
+    <ClCompile Include="Game\ExternalClasses\NullWeapon.cpp" />
     <ClCompile Include="Game\ExternalClasses\PlayerPilot.cpp" />
     <ClCompile Include="Game\ExternalClasses\WoodenShortsword.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -244,6 +249,11 @@
     <ClInclude Include="Game\ExternalClasses\BaseShortsword.h" />
     <ClInclude Include="Game\ExternalClasses\BaseWeapon.h" />
     <ClInclude Include="Game\ExternalClasses\Damageable.h" />
+    <ClInclude Include="Game\ExternalClasses\NullChestplate.h" />
+    <ClInclude Include="Game\ExternalClasses\NullGreaves.h" />
+    <ClInclude Include="Game\ExternalClasses\NullHelmet.h" />
+    <ClInclude Include="Game\ExternalClasses\NullShield.h" />
+    <ClInclude Include="Game\ExternalClasses\NullWeapon.h" />
     <ClInclude Include="Game\ExternalClasses\PlayerPilot.h" />
     <ClInclude Include="Game\ExternalClasses\UserDefinedRenderLayers.h" />
     <ClInclude Include="Game\ExternalClasses\WoodenShortsword.h" />
